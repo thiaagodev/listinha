@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:listinha/src/home/home_page.dart';
 import 'package:listinha/src/shared/themes/themes.dart';
-
-import '../main.dart';
 
 class AppWidget extends StatelessWidget {
   const AppWidget({super.key});
@@ -9,11 +8,12 @@ class AppWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       themeMode: ThemeMode.light,
       theme: lightTheme,
       darkTheme: darkTheme,
-      home: const MyHomePage(title: 'LISTINHA'),
+      home: const HomePage(),
     );
   }
 }
