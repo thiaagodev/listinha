@@ -11,6 +11,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  int selectedButton = 1;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,8 +51,12 @@ class _HomePageState extends State<HomePage> {
                     label: Text('Desativadas'),
                   ),
                 ],
-                selected: const {1},
-                onSelectionChanged: (values) {},
+                selected: {selectedButton},
+                onSelectionChanged: (values) {
+                  setState(() {
+                    selectedButton = values.first;
+                  });
+                },
               ),
             )
           ],
