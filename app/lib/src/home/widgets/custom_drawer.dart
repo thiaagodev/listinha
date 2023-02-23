@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:intl/intl.dart';
+import 'package:rx_notifier/rx_notifier.dart';
 
 import '../../shared/stores/app_store.dart';
 
@@ -9,11 +10,9 @@ class CustomDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final appStore = context.watch<AppStore>(
-      (store) => store.syncDate,
-    );
+    final appStore = context.read<AppStore>();
 
-    final syncDate = appStore.syncDate.value;
+    final syncDate = context.select(() => appStore.syncDate);
 
     var syncDateText = 'Nunca';
 
